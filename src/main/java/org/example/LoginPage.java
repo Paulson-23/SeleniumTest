@@ -2,12 +2,11 @@ package org.example;
 
 import PageObjects.BasePO;
 import Utilities.TestRunConfig;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+
+import static DriverFactory.Driver.getDriver;
 
 public class LoginPage extends BasePO {
 
@@ -38,6 +37,12 @@ public class LoginPage extends BasePO {
 
     public void enterPassword(String pwd) throws InterruptedException{
         password.sendKeys(pwd);
+    }
+
+    public void loginCheck(){
+        String currentURL = getDriver().getCurrentUrl();
+        String expectedURL="https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index";
+        Assert.assertEquals(currentURL,expectedURL);
     }
 
     public void login(){

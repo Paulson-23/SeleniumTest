@@ -9,7 +9,7 @@ import java.time.Duration;
 
 public class Driver {
 
-    private static ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
+    private static final ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
 
     public static WebDriver getDriver(){
         if(webDriver.get() == null)
@@ -38,6 +38,6 @@ public class Driver {
 
     public static void closeDriver() throws InterruptedException {
         Thread.sleep(500);
-        webDriver.get().close();
+        getDriver().close();
     }
 }

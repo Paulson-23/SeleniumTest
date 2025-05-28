@@ -5,7 +5,7 @@ import com.aventstack.extentreports.ExtentTest;
 
 public class ExtentTestManager {
     public static ExtentReports extent = ExtentManager.getExtentReports();
-    private static ThreadLocal<ExtentTest> testThreadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<ExtentTest> testThreadLocal = new ThreadLocal<>();
 
     public static synchronized ExtentTest startTest(String testName){
         ExtentTest test = extent.createTest(testName);
@@ -17,7 +17,8 @@ public class ExtentTestManager {
         return testThreadLocal.get();
     }
 
-    public static synchronized void endTest(){
+    public static synchronized void endTest() throws InterruptedException {
         extent.flush();
+        Thread.sleep(1000);
     }
 }

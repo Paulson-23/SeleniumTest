@@ -25,7 +25,7 @@ public class Testing {
     void adminTest() throws InterruptedException {
         AdminPage adminPage = new AdminPage();
         adminPage.openAdminPage();
-        adminPage.searchUser();
+        adminPage.searchwUser();
     }
 
     @Test(priority = 4)
