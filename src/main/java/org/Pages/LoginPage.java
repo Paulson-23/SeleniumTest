@@ -1,4 +1,4 @@
-package org.example;
+package org.Pages;
 
 import PageObjects.BasePO;
 import Utilities.TestRunConfig;

@@ -5,7 +5,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
-@CucumberOptions(tags = "((@OrangeHRM_Login and (@Valid_Login or @Invalid_Login)) or (@OrangeHRM_Admin and @Admin_Search))",
+@CucumberOptions(
         plugin = {"pretty", "html:target/cucumber/report.html",
                 "json:target/cucumber/report.json",
                 "junit:target/cucumber-results.xml",

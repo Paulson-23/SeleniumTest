@@ -7,9 +7,6 @@
     <test name="testing1">
         <classes>
             <class name="Runner.MainRunner">
-<!--                <methods>-->
-<!--                    <include name="loginTest"/>-->
-<!--                </methods>-->
             </class>
         </classes>
     </test>

@@ -8,10 +8,6 @@ import org.testng.ITestResult;
 
 public class TestListener implements ITestListener {
     @Override
-    public void onTestStart(ITestResult result){
-        ExtentTestManager.startTest(result.getMethod().getMethodName()).log(Status.INFO,"Test Started");
-    }
-    @Override
     public void onTestSuccess(ITestResult result){
         ExtentTestManager.getTest().log(Status.PASS,"Test Success");
     }
@@ -24,7 +20,11 @@ public class TestListener implements ITestListener {
         ExtentTestManager.getTest().log(Status.SKIP,"Test Skipped" + result.getThrowable());
     }
     @Override
-    public void onFinish(ITestContext context){
-        ExtentTestManager.endTest();
+    public void onFinish(ITestContext context) {
+        try {
+            ExtentTestManager.endTest();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

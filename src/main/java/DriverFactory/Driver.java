@@ -32,12 +32,20 @@ public class Driver {
                 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             }
         }
-
         return driver;
     }
 
     public static void closeDriver() throws InterruptedException {
-        Thread.sleep(500);
-        getDriver().close();
+        WebDriver driver = getDriver();
+        if (driver != null) {
+            try {
+                driver.manage().deleteAllCookies();
+                Thread.sleep(200);
+            } catch (Exception ignored) {
+            } finally {
+                driver.quit();
+                webDriver.remove();
+            }
+        }
     }
 }

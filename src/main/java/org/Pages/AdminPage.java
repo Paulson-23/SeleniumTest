@@ -1,4 +1,4 @@
-package org.example;
+package org.Pages;
 
 import PageObjects.BasePO;
 import org.openqa.selenium.WebElement;
@@ -53,7 +53,6 @@ public class AdminPage extends BasePO {
     public void checkSearchResults(String username){
         Assert.assertEquals(records.size(),1);
         Assert.assertEquals(usernameContainer.getText(),username);
-
     }
 
 }
