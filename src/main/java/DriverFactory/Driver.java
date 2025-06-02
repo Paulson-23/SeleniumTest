@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
@@ -19,7 +20,7 @@ public class Driver {
         return webDriver.get();
     }
 
-    public static WebDriver createDriver(){
+    public static WebDriver createDriver() throws InterruptedException {
         WebDriver driver=null;
         String BrowserType="Edge";
         switch(BrowserType){

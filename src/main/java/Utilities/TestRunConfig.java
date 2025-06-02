@@ -17,7 +17,7 @@ public class TestRunConfig {
             properties.load(fileInputStream);
             value = properties.getProperty(property);
         } catch (IOException e) {
-            e.printStackTrace(); // You can log this or rethrow as a runtime exception
+            e.printStackTrace();
         }
         return value;
     }

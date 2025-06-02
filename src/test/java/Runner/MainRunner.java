@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        plugin = {"pretty", "html:target/cucumber/report.html",
+        plugin = {"pretty","summary", "html:target/cucumber/report.html",
                 "json:target/cucumber/report.json",
                 "junit:target/cucumber-results.xml",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
@@ -14,7 +14,7 @@ import org.testng.annotations.DataProvider;
         features = "src/test/resources/Features",
         glue = {"StepDefinitions","Base"},
         dryRun = false,
-        monochrome = true)
+        monochrome = false)
 
 public class MainRunner extends AbstractTestNGCucumberTests {
 
